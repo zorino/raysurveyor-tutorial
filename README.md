@@ -6,15 +6,16 @@ This tutorial will show you how to launch a surveyor run with a toy dataset made
 
 Ray Surveyor depends on Ray platform and MPI; implementation such as OpenMPI and MPICH are compatible.
 
-
 ```
-	
-
+git clone https://github.com/zorino/RayPlatform.git;
+git clone https://github.com/zorino/ray.git;
+cd ray;
+make PREFIX=`pwd`/BUILD MAXKMERLENGTH=64 ASSERT=n;
+cd ../
 ```
 
 
 ### Datasets
-
 
 ```
 Genome Datasets :
@@ -28,11 +29,42 @@ Filtering Dataset :
 	- Pol-Genes.fa
 ```
 
-
 ### Configuration
+
+You can launch Ray Surveyor from the command line but a better approach is to build a configuration file.
+
+Ray -h for a complete list of commands.
+
+See survey.conf 
+
+```
+-k								specify the kmer length
+-run-surveyor					mandatory to run surveyor
+-write-kmer-matrix				will output a boolean kmer matrix of presence/absence in samples
+-filter-[in|out]-assembly-X	    add filters on the Gram matrix; can combine multiple filters
+-read-sample-assembly			read a genome assembly (fasta file)
+
+```
 
 
 ### Execution
 
+```
+mpiexec -n 2 ray/BUILD/Ray survey.conf
+```
+
 
 ### Results
+
+```
+ls ./survey.res/Surveyor/
+
+	- DistanceMatrix.global.tsv
+	- KmerMatrix.tsv
+	- SimilarityMatrix.filter-1.tsv
+	- SimilarityMatrix.filter-2.tsv
+	- SimilarityMatrix.global.tsv
+
+```
+
+
