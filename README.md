@@ -11,7 +11,9 @@ git clone https://github.com/zorino/RayPlatform.git;
 git clone https://github.com/zorino/ray.git;
 cd ray;
 make PREFIX=`pwd`/BUILD MAXKMERLENGTH=64 ASSERT=n;
+make install;
 cd ../
+git clone https://github.com/zorino/raysurveyor-tutorial.git
 ```
 
 
@@ -51,7 +53,8 @@ See survey.conf
 ### Execution
 
 ```
-mpiexec -n 2 ray/BUILD/Ray survey.conf
+cd raysurveyor-tutorial/
+mpiexec -n 2 ../ray/BUILD/Ray survey.conf
 ```
 
 
