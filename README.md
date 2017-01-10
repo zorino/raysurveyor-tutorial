@@ -56,7 +56,7 @@ See survey.conf
 
 ### Execution
 
-Run the analysis from survey.conf configuration file.
+Run the analysis with the survey.conf configuration file.
 
 ```
 cd raysurveyor-tutorial/
