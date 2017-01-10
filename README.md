@@ -22,7 +22,7 @@ git clone https://github.com/zorino/raysurveyor-tutorial.git
 
 ### Datasets
 
-Small example dataset to compare 5 HIV genome isolate with Pol and Gag genes filtering.
+Small example dataset to compare 5 HIV genome isolates with Pol and Gag genes filtering.
 
 ```
 Genome Datasets :
@@ -92,10 +92,10 @@ You will need python 3 and the dependencies from the requirements.txt file :
 
 
 - raysurveyor-conf.py :          generate a raysurveyor config file
-- matrix-transform.py :          normalize the similarity matrix and/or drop some lines/columns from it.
+- matrix-transform.py :          normalize the similarity matrix and/or drop some lines/columns from it
 - raysurveyor-gentree.py :       generate a phylogenetic tree from the similarity matrix
 - pyvolve-gen-seq.py :           simulate Dna sequences from a tree from a simple nucleotide model
-- treeclust-compare.py :         compare trees or clusters for to see how well they corelate
+- treeclust-compare.py :         compare trees or clusters to see how well they corelate
 
 
 
