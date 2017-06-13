@@ -3,3 +3,6 @@ RayPlatform
 README.html
 survey.res
 *.gbk
+%00.desktop
+__pycache__
+.ipynb_checkpoints/
