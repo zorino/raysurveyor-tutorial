@@ -46,11 +46,11 @@ Ray -h for the complete list of commands.
 See survey.conf 
 
 ```
--k								specify the kmer length
--run-surveyor					mandatory to run surveyor
--write-kmer-matrix				output a boolean kmer matrix of presence/absence in the genomes
--filter-[in|out]-assembly-X	    add filters on the Gram matrix; can combine multiple filters
--read-sample-assembly			read a genome assembly (fasta file)
+  -k                            specify the kmer length
+  -run-surveyor                 mandatory to run surveyor
+  -write-kmer-matrix            output a boolean kmer matrix of presence/absence in the genomes
+  -filter-[in|out]-assembly-X   add filters on the Gram matrix; can combine multiple filters
+  -read-sample-assembly         read a genome assembly (fasta file)
 ```
 
 
@@ -71,13 +71,13 @@ List of the files created during the analysis.
 ```
 ls ./survey.res/Surveyor/
 
-	- KmerMatrix.tsv						           The boolean Kmer Matrix
-	- SimilarityMatrix.filter-1.tsv			           Filtered matrix #1
-	- SimilarityMatrix.filter-2.tsv			           Filtered matrix #2
-	- SimilarityMatrix.filter-2.tsv                    Filtered matrix #3
-	- SimilarityMatrix.global.tsv                      Global similarity matrix without filtering
-	- DistanceMatrix.global.euclidean_raw.tsv          Euclidean distance matrix computed from the global similarity matrix
-    - DistanceMatrix.global.euclidean_normalized.tsv   Euclidean normalized distance matrix computed from the global similarity matrix
+  - KmerMatrix.tsv                                     The boolean Kmer Matrix
+  - SimilarityMatrix.filter-1.tsv                      Filtered matrix #1
+  - SimilarityMatrix.filter-2.tsv                      Filtered matrix #2
+  - SimilarityMatrix.filter-2.tsv                      Filtered matrix #3
+  - SimilarityMatrix.global.tsv                        Global similarity matrix without filtering
+  - DistanceMatrix.global.euclidean_raw.tsv            Euclidean distance matrix computed from the global similarity matrix
+  - DistanceMatrix.global.euclidean_normalized.tsv     Euclidean normalized distance matrix computed from the global similarity matrix
 ```
 
 ### Scripts usage
