@@ -76,6 +76,7 @@ ls ./survey.res/Surveyor/
   - SimilarityMatrix.filter-2.tsv                      Filtered matrix #2
   - SimilarityMatrix.filter-2.tsv                      Filtered matrix #3
   - SimilarityMatrix.global.tsv                        Global similarity matrix without filtering
+  - SimilarityMatrix.global.normalized.tsv             Global similarity matrix normalized
   - DistanceMatrix.global.euclidean_raw.tsv            Euclidean distance matrix computed from the global similarity matrix
   - DistanceMatrix.global.euclidean_normalized.tsv     Euclidean normalized distance matrix computed from the global similarity matrix
 ```
@@ -90,15 +91,11 @@ You will need python 3 and the dependencies from the requirements.txt file :
 
 `pip install -r /path/to/requirements.txt`
 
-
 - raysurveyor-conf.py :          generate a raysurveyor config file
 - matrix-transform.py :          normalize the similarity matrix and/or drop some lines/columns from it
 - raysurveyor-gentree.py :       generate a phylogenetic tree from the similarity matrix
 - pyvolve-gen-seq.py :           simulate Dna sequences from a tree from a simple nucleotide model
 - treeclust-compare.py :         compare trees or clusters to see how well they corelate
-
-
-
 
 
 
