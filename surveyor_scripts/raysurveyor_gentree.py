@@ -21,6 +21,9 @@ from scipy.spatial.distance import pdist, squareform
 from skbio import DistanceMatrix
 from skbio.tree import nj
 
+import plotly.graph_objs as go
+import plotly.figure_factory as FF
+
 
 def read_args():
 
@@ -129,6 +132,96 @@ def tree_distances(file):
         branch_len_out.write(row+"\n")
 
     branch_len_out.close()
+
+
+def plotly_heatmap(gram_matrix, title=None):
+
+    # Initialize figure by creating upper dendrogram
+    figure = None
+
+    figure = FF.create_dendrogram(gram_matrix, orientation='bottom', labels=gram_matrix.axes[0])
+
+    for i in range(len(figure['data'])):
+        figure['data'][i]['yaxis'] = 'y2'
+
+    # Create Side Dendrogram
+    dendro_side = FF.create_dendrogram(gram_matrix, orientation='right')
+    for i in range(len(dendro_side['data'])):
+        dendro_side['data'][i]['xaxis'] = 'x2'
+
+    # Add Side Dendrogram Data to Figure
+    figure['data'].extend(dendro_side['data'])
+
+    # Create Heatmap
+    dendro_leaves = dendro_side['layout']['yaxis']['ticktext']
+    dendro_leaves = list(map(int, dendro_leaves))
+
+    data_dist = pdist(gram_matrix)
+    heat_data = squareform(data_dist)
+    heat_data = heat_data[dendro_leaves,:]
+    heat_data = heat_data[:,dendro_leaves]
+
+
+    heatmap = [
+        go.Heatmap(
+            x = gram_matrix.axes[0],
+            y = gram_matrix.axes[1],
+            z = heat_data,
+            colorscale = 'YIGnBu'
+        )
+    ]
+
+    heatmap[0]['x'] = figure['layout']['xaxis']['tickvals']
+    heatmap[0]['y'] = dendro_side['layout']['yaxis']['tickvals']
+
+    # Add Heatmap Data to Figure
+    figure['data'].extend(heatmap)
+
+
+    # Edit Layout
+    figure['layout'].update({'width':600, 'height':600, 'title':title,
+                             'showlegend':False, 'hovermode': 'closest',})
+
+    # Edit xaxis
+    figure['layout']['xaxis'].update({'domain': [.15, 1],
+                                      'mirror': False,
+                                      'showgrid': False,
+                                      'showline': False,
+                                      'zeroline': False,
+                                      'ticks':""})
+    # Edit xaxis2
+    figure['layout'].update({'xaxis2': {'domain': [0, .15],
+                                        'mirror': False,
+                                        'showgrid': False,
+                                        'showline': False,
+                                        'zeroline': False,
+                                        'showticklabels': False,
+                                        'ticks':""}})
+
+    # Edit yaxis
+    figure['layout']['yaxis'].update({'domain': [0, .85],
+                                      'mirror': False,
+                                      'showgrid': False,
+                                      'showline': False,
+                                      'zeroline': False,
+                                      'showticklabels': True,
+                                      'ticks': ""})
+
+
+    # Edit yaxis2
+    figure['layout'].update({'yaxis2':{'domain':[.825, .975],
+                                       'mirror': False,
+                                       'showgrid': False,
+                                       'showline': False,
+                                       'zeroline': False,
+                                       'showticklabels': False,
+                                       'ticks':""}})
+
+    figure['layout']['yaxis']['ticktext'] = np.asarray(gram_matrix.axes[0][dendro_leaves])
+    figure['layout']['yaxis']['tickvals'] = np.asarray(dendro_side['layout']['yaxis']['tickvals'])
+
+    return figure
+
 
 
 # Main #
