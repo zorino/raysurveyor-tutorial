@@ -134,7 +134,7 @@ def tree_distances(file):
     branch_len_out.close()
 
 
-def plotly_heatmap(gram_matrix, title=None):
+def plotly_heatmap(gram_matrix, title=None, width=600, height=600):
 
     # Initialize figure by creating upper dendrogram
     figure = None
@@ -179,7 +179,7 @@ def plotly_heatmap(gram_matrix, title=None):
 
 
     # Edit Layout
-    figure['layout'].update({'width':600, 'height':600, 'title':title,
+    figure['layout'].update({'width':width, 'height':height, 'title':title,
                              'showlegend':False, 'hovermode': 'closest',})
 
     # Edit xaxis
