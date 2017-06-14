@@ -81,21 +81,20 @@ ls ./survey.res/Surveyor/
   - DistanceMatrix.global.euclidean_normalized.tsv     Euclidean normalized distance matrix computed from the global similarity matrix
 ```
 
-### Scripts usage
+### Results analysis
 
-Ray Surveyor also provides some scripts for further analysis.
+Ray Surveyor also provides some scripts for further analysis in the ray source code (ray/scripts/Surveyor/) and rovided here in the surveyor_scripts/ folder.
 
-See ray/scripts/Surveyor/
+The easiest way to setup and run the jupyter notebook demo is to use miniconda3 (https://conda.io/miniconda.html) and create the virtual environment with the surveyor_scripts/conda_env.yml file.
 
-You will need python 3 and the dependencies from the requirements.txt file :
+```
+conda env create --name surveyor -f conda_env.yml
+# wait the installation
+source activate surveyor
+```
 
-`pip install -r /path/to/requirements.txt`
-
-- raysurveyor-conf.py :          generate a raysurveyor config file
-- matrix-transform.py :          normalize the similarity matrix and/or drop some lines/columns from it
-- raysurveyor-gentree.py :       generate a phylogenetic tree from the similarity matrix
-- pyvolve-gen-seq.py :           simulate Dna sequences from a tree from a simple nucleotide model
-- treeclust-compare.py :         compare trees or clusters to see how well they corelate
-
-
+Then you can launch the jupyter demo (need to set the iopub_data_rate_limit to overcome a jupyter issue with plotly).
+```
+jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
+```
 
