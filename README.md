@@ -83,7 +83,7 @@ ls ./survey.res/Surveyor/
 
 ### Results analysis
 
-Ray Surveyor also provides some scripts for further analysis in the ray source code (ray/scripts/Surveyor/) and rovided here in the surveyor_scripts/ folder.
+Ray Surveyor also provides some scripts for further analysis in the ray source code (ray/scripts/Surveyor/) and are provided here in the surveyor_scripts/ folder.
 
 The easiest way to setup and run the jupyter notebook demo is to use miniconda3 (https://conda.io/miniconda.html) and create the virtual environment with the surveyor_scripts/conda_env.yml file.
 
