@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -42,7 +42,7 @@
 			<div class="slides">
 
         <section>
-					<h2>Metagenomes Comparisons <br> with Ray Surveyor</h2>
+					<h2>Metagenomes Comparison <br> with Ray Surveyor</h2>
 					<h3>Lab Session</h3>
           <h4> <a href="http://metagenomic.ca" target="_blank"> Metagenomics Summer School 2017 </a> </h4>
 					<p>
@@ -81,9 +81,9 @@
         <section>
           <section>
             <h2> Ray Surveyor - Mechanics </h2>
-            <p class="fragment"> The Ray Surveyor mechanics is pretty simple.</p>
-            <p class="fragment"> After the coloring, all we need to do is to iterate over each k-mer and fill the Gram Matrix </p>
-            <p class="fragment"> Gram matrix contains the number of shared k-mers for each pair of genome </p>
+            <p> The Ray Surveyor mechanics is pretty simple.</p>
+            <p> After the coloring, all we need to do is to iterate over each k-mer and fill the Gram Matrix </p>
+            <p> Gram matrix contains the number of shared k-mers for each pair of genome </p>
           </section>
 
           <section>
@@ -157,15 +157,15 @@
 
           <section>
 						<h2>Ray Surveyor - Kmers Filtering</h2>
-						<p class="fragment">Filtering k-mers in Ray Surveyor allow comparison of (meta)-genome based on an external datasets </p>
-            <p class="fragment">We can filter with any sequence datasets</p>
-            <p class="fragment">Usually built from gene sequences with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.)</p>
+						<p>Filtering k-mers in Ray Surveyor allow comparison of (meta)-genome based on an external datasets </p>
+            <p>We can filter with any sequence datasets</p>
+            <p>Usually built from gene sequences with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.)</p>
 					</section>
 					<section>
 						<h2>2 filtering functions</h2>
-						<p class="fragment"><span style="font-weight:bold">Filter-in</span> / include only the kmers from the filtering dataset </p>
-            <p class="fragment"><span style="font-weight:bold">Filter-out</span> / exclude all the kmers from the filtering dataset </p>
-            <p class="fragment">We can also <span style="font-weight:bold">combine</span> different filters</p>
+						<p><span style="font-weight:bold">Filter-in</span> / include only the kmers from the filtering dataset </p>
+            <p><span style="font-weight:bold">Filter-out</span> / exclude all the kmers from the filtering dataset </p>
+            <p>We can also <span style="font-weight:bold">combine</span> different filters</p>
 					</section>
 					<section>
             <img data-src="img/ray-coloring-filtering-in.png" style="background:none; border:none; box-shadow:none;"/>
