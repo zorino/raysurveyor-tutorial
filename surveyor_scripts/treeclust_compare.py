@@ -89,6 +89,23 @@ def check_symmetry(m):
                 m[j][i] = m[i][j]
 
 
+def mantel_test(ref, query):
+
+    return mantel(ref, query)
+
+
+def cophentic_correlation_test(ref, query):
+
+    ref = ref.as_matrix()
+    query = query.as_matrix()
+    linkage_ref = linkage(pdist(ref), 'average')
+    c_ref, coph_dists_ref = cophenet(linkage_ref, pdist(ref))
+    linkage_fst = linkage(pdist(query), 'average')
+    c_fst, coph_dists_query = cophenet(linkage_fst, pdist(query))
+    cophenetic_pearson, p_value_cophenetic = pearsonr(coph_dists_ref, coph_dists_query)
+
+    return cophenetic_pearson, p_value_cophenetic
+
 def compare_clusters(args):
 
     ref_df = pd.read_table(args['ref'], sep='\t', skipinitialspace=True, index_col=0).as_matrix()
@@ -108,7 +125,8 @@ def compare_clusters(args):
         p_value_cophenetic = 0.0
         n = 0
         try:
-            mantel_coeff, p_value_mantel, n = mantel(ref_df, fst_df)
+            # mantel_coeff, p_value_mantel, n = mantel(ref_df, fst_df)
+            mantel_coeff, p_value_mantel, n = mantel_test(ref_df, fst_df)
             linkage_fst = linkage(fst_df, 'average')
             c_fst, coph_dists_fst = cophenet(linkage_fst, pdist(fst_df))
             cophenetic_pearson, p_value_cophenetic = pearsonr(coph_dists_ref, coph_dists_fst)
