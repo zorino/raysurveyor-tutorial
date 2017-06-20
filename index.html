@@ -181,15 +181,15 @@
 
                     <section>
 						            <h2>Ray Surveyor - Kmers Filtering</h2>
-						            <p>Filtering kmers in Ray Surveyor allow comparison of (meta)-genomes based on an external datasets </p>
-                        <p>We can filter with any sequence datasets</p>
-                        <p>Sequence datasets are usually built from genes with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.)</p>
+						            <p>Filtering kmers in Ray Surveyor allow comparison of (meta)-genomes based on an external datasets. </p>
+                        <p>We can build filter with any sequence datasets.</p>
+                        <p>Sequence datasets are usually built from genes with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.).</p>
 					          </section>
 					          <section>
 						            <h2>Filtering Functions</h2>
-						            <p><strong>Filter-in</strong> : include only the kmers from the filtering dataset </p>
-                        <p><strong>Filter-out</strong> : exclude all the kmers from the filtering dataset </p>
-                        <p>We can also <strong>combine</strong> different filters</p>
+						            <p><strong>Filter-in</strong> : include only the kmers from the filtering dataset. </p>
+                        <p><strong>Filter-out</strong> : exclude all the kmers from the filtering dataset. </p>
+                        <p>We can also <strong>combine</strong> different filters.</p>
 					          </section>
 					          <section>
                         <img data-src="img/ray-coloring-filtering-in.png" style="background:none; border:none; box-shadow:none;"/>
@@ -287,7 +287,7 @@ tar xvf survey.res.microbiomes.tgz
 					              <h2>Ray Surveyor - Configuration</h2>
                         <p>
                             <ul>
-                                <li> <strong>-k</strong> : k-mer length </li>
+                                <li> <strong>-k</strong> : kmer length </li>
                                 <li> <strong>-run-surveyor</strong> : flag to run surveyor (not the assembly) </li>
                                 <li> <strong>-read-sample-assembly</strong> : input fasta sequence file </li>
                                 <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes </li>
@@ -312,7 +312,7 @@ tar xvf survey.res.microbiomes.tgz
 -read-sample-assembly EU541617.1 datasets/EU541617.1.fa
 -read-sample-assembly GQ372986.1 datasets/GQ372986.1.fa
                         </code></pre>
-                        <p> Question : How many filters are they ? </p>
+                        <p> Question : How many filters in the configuration ? </p>
                         <p class="fragment"> <small> 3 ! </small> </p>
                     </section>
 				        </section>
@@ -340,8 +340,8 @@ SimilarityMatrix.filter-3.tsv
 SimilarityMatrix.global.normalized.tsv
 SimilarityMatrix.global.tsv
 # Explore the files to see what's inside
-less KmerMatrix.tsv
-less SimilarityMatrix.global.tsv
+less survey.res/Surveyor/KmerMatrix.tsv
+less survey.res/Surveyor/SimilarityMatrix.global.tsv
                         </code></pre>
                     </p>
 				        </section>
@@ -360,23 +360,91 @@ source activate surveyor
 cd ~/raysurveyor-tutorial/
 jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
                         </code></pre>
-                        <p> <small>Your browser should've open an new tab with jupyter notebook </small> </p>
+                        <p> <small>Your browser should have open an new tab with jupyter notebook </small> </p>
 
                     </section>
 
                     <section>
-                        <h2> Jupyter Notebook </h2>
-                        <p> Use "shift-enter" to execute a cell
+                        <h2> Dataset #1 (VIH) </h2>
+                        <p> Open survey-notebook-demo.ipynb </p>
+                        <p> Execute the cells with &lt;shift-enter&gt; </p>
+                    </section>
+
+                    <section>
+                        <img src="img/jupyter-home-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                    </section>
+                    <section>
+                        <img src="img/jupyter-nb-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                    </section>
+
+                    <section>
+                        <h2> Dataset #2 (Microbiomes) </h2>
+                        <p> Open survey-notebook-microbiome.ipynb </p>
+                        <p> Execute the cells with &lt;shift-enter&gt; </p>
+                        <p> Complete missing code for the 3rd filtered matrix </p>
+                        <p> Answer questions in the notebook </p>
+                    </section>
+
+                    <section>
+                        <img src="img/jupyter-home-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                    </section>
+
+                    <section>
+                        <img src="img/jupyter-nb-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                    </section>
+
+                </section>
+
+				        <section>
+                    <section>
+                        <h2> Frequently Asked Questions </h2>
+                        <p style="text-align: left;" class="fragment"> What is the best kmer length for analysis ?  </p>
+                        <p style="text-align: left;"  class="fragment">
+                            <small>
+                                It depends of the data. The kmer length can be seen as a trade-off between sensitivity and specificity.
+                                Evolutionarily distant genomes require shorter kmers to get a good signal (sensitivity) while more similar genomes benefit from larger kmer lengths for more specificity.
+                                Previous studies have shown the efficiency of 31-mers in bacterial genome clustering and its robustness in bacterial metagenome profiling.
+                            </small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p style="text-align: left;"> Limitations of the filtering functionality ? </p>
+                        <p style="text-align: left;"  class="fragment">
+                            <small>
+                                A limitation of the filtering approach is that it involves the gathering of sequence data that adequately represents the diversity of the genes or functional category under study.
+                                A type gene dataset would generally not be sufficiant, as the filtering dataset must contains enough sequence variants to grasp the dissimilarity between close genomes with a limited number of signal (shared kmers).
+                                This issue should be alleviated by better filtering datasets as more sequences and better annotations become available in public databases.
+                            </small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p style="text-align: left;"> What is the difference between Ray Surveyor and other kmer counters ? </p>
+                        <p style="text-align: left;"  class="fragment">
+                            <small>
+                                Counting kmers is one of the most trivial task in bioinformatics, and there is a lot of very efficient kmer counters out there (KMC, JellyFish, MSPKmerCounter, DSK, etc.).
+                                Ray Surveyor aims to be efficient and scalable by using the Ray Meta coloring pattern.
+                                It also does more computation for you than only counting the kmers by providing a Gram matrix that is use for further analyses. Also, the filtering functionality provides a convenient way to compare (meta)-genome datasets from different angles.
+                            </small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p style="text-align: left;"> Is Ray Surveyor Quantitative ? </p>
+                        <p style="text-align: left;"  class="fragment">
+                            <small>
+                                Not from a abundance-based perspective. The kmer counts are binary - either present or absent from each (meta)-genome. So it's important to keep in mind that the comparison are based on the sequence content of the studied (meta)-genomes, rather than their relative abundances. For single bacterial genomes comparison, this has a minor impact on the results. For metagenomes, the interpretation of the results must be oriented toward the actual presence or absence of genomic content.
+                            </small>
+                        </p>
                     </section>
 
                 </section>
 
 
-				        <section style="text-align: left;">
+
+                <section style="text-align: left;">
 					          <h1>THE END</h1>
-					          <h2>
-                        Congratulation !
-					          </h2>
 				        </section>
 
 			      </div>
