@@ -4,7 +4,7 @@
 	  <head>
 		    <meta charset="utf-8">
 
-		    <title>reveal.js – The HTML Presentation Framework</title>
+		    <title>Microbiome Summer School 2017 - Ray Surveyor Lab Session</title>
 
 		    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		    <meta name="author" content="Hakim El Hattab">
@@ -144,9 +144,34 @@
 							                  </tr>
 						                </tbody>
 					              </table>
+                        <p>
+                            Question : What are the numbers on the diagonal ?
+                        </p>
+                        <p class="fragment">
+                            <small>
+                                Answer : The size of genomes in kmers. <br>
+                                Size in base pairs = size_in_kmers + kmer_length - 1
+                            </small>
+                        </p>
 
                     </section>
 
+                    <section>
+                        <h2> Gram Matrix - Properties </h2>
+                        <p> The Gram matrix is symmetrical <br> (Only compute upper triangle) </p>
+                        <p> The Gram matrix can be normalized (diagonal = 1) </p>
+                        <p> The Gram matrix can be transformed into a distance matrix (diagonal = 0) based on a distance metric <br> (Euclidean, Cosine, Canberra, etc..) </p>
+                    </section>
+
+                    <section>
+                        <img data-src="img/gram-matrix-transform.png" style="background:none; border:none; box-shadow:none;"/>
+                    </section>
+
+                    <section>
+                        <h2> Distance Matrix </h2>
+                        <p> Can be use for clustering <br> (hierarchical cluster dendrograms) </p>
+                        <p> Can be use for basic phylogenies <br> (UPGMA or Neighbor-Joining tree) </p>
+                    </section>
 
                 </section>
 
@@ -173,8 +198,10 @@
                         <img data-src="img/ray-coloring-filtering-out.png" style="background:none; border:none; box-shadow:none;"/>
 					          </section>
                     <section>
-                        <p> Cophenetic correlation is used to give a similarity score between clusters from whole genomes (all kmers) and filtered genome (kmers from antibiotic resistance genes). </p>
-                        <img data-src="img/raysurveyor-clusters.png" height="400" style="background:none; border:none; box-shadow:none;"/>
+                        <p> Cophenetic correlation is used to give a similarity score between clusters from whole genomes (all kmers) and filtered genomes (kmers from antibiotic resistance genes). </p>
+                        <img data-src="img/raysurveyor-clusters.png" height="300" style="background:none; border:none; box-shadow:none;"/>
+                        <p> Question : explanation for this high correlation ? </p>
+                        <p class="fragment"> <small> Answer : Intrinsic resistance in  <span style="font-style:italic">P. aeruginosa</span> </small> </p>
                     </section>
                     <section>
                         <blockquote> As a land surveyor and its theodolite, <br> Ray Surveyor filtering enables comparison of (meta)-genomes from different angles. </blockquote>
@@ -189,22 +216,69 @@
 						            Time for a little hands-on exercice !
 					          </p>
                     <p>
-						            Please visit the github project : <br>
+						            Please clone the github project : <br>
                         <a href="https://github.com/zorino/raysurveyor-tutorial" target="_blank">zorino/raysurveyor-tutorial</a>
 					          </p>
+                    <p>
+                        <pre><code class="bash">
+cd ~ # to your home directory
+git clone https://github.com/zorino/raysurveyor-tutorial
+cd raysurveyor-tutorial
+                        </code> </pre>
+                    </p>
 				        </section>
 
 				        <section>
 					          <h2>Ray Surveyor - Installation</h2>
-					          <p>
-
-					          </p>
+                    <h4> <img src="img/check_mark.png" style="background:none; border:none; box-shadow:none;" width=40"/> Already done for you </h4>
+                    <p>
+                        <ul>
+                            <li> gcc (c++ 98), MPI for parallelism </li>
+                            <li> RayPlatform (<a href="https://github.com/zorino/RayPlatform/" target="_blank"> github.com/zorino/ray/</a>) </li>
+                            <li> Ray (<a href="https://github.com/zorino/ray/" target="_blank"> github.com/zorino/ray/</a>) </li>
+                            <li> python3 for post-analysis with Surveyor scripts </li>
+                        </ul>
+                    </p>
 				        </section>
 
 				        <section>
-					          <h2>Touch Optimized</h2>
+                    <section>
+					          <h2>Ray Surveyor - Configuration</h2>
+                    <p>
+                        <ul>
+                            <li> <strong>-k</strong> : k-mer length </li>
+                            <li> <strong>-run-surveyor</strong> : flag to run surveyor (not the assembly) </li>
+                            <li> <strong>-read-sample-assembly</strong> : input fasta sequence file </li>
+                            <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes </li>
+                            <li> <strong>-filter-[in|out]-assembly-X</strong> : add a filter to the genome comparison (fasta sequence file) </li>
+                        </ul>
+                    </p>
+                    </section>
+                    <section>
+                        <p> See ~/raysurveyor-tutorial/survey.conf </p>
+                        <pre><code>
+-k 31
+-run-surveyor
+-output survey.res
+-write-kmer-matrix
+-filter-in-assembly-1 Pol-Genes_in datasets/Pol-Genes.fa
+-filter-in-assembly-2 Gag-Genes_in datasets/Gag-Genes.fa
+-filter-out-assembly-3 Pol-Genes_out datasets/Pol-Genes.fa
+-filter-out-assembly-3 Gag-Genes_out datasets/Gag-Genes.fa
+-read-sample-assembly AF069671.1 datasets/AF069671.1.fa
+-read-sample-assembly AF224507.1 datasets/AF224507.1.fa
+-read-sample-assembly AY445524.1 datasets/AY445524.1.fa
+-read-sample-assembly EU541617.1 datasets/EU541617.1.fa
+-read-sample-assembly GQ372986.1 datasets/GQ372986.1.fa
+                        </code></pre>
+                    </section>
+				        </section>
+
+
+				        <section>
+					          <h2>Ray Surveyor - Results</h2>
 					          <p>
-						            Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+
 					          </p>
 				        </section>
 
