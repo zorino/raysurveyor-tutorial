@@ -72,7 +72,6 @@ def compare_trees(args):
             f_out.write(str(tree['comparison']['source_edges_in_ref'])+"\t")
             f_out.write("\n")
 
-
     # print(trees[0]['comparison'])
 
 
