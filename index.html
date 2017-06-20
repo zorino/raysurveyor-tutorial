@@ -1,93 +1,154 @@
 <!doctype html>
 <html lang="en">
 
-	  <head>
-		    <meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
 
-		    <title>Microbiome Summer School 2017 - Ray Surveyor Lab Session</title>
+		<title>Microbiome Summer School 2017 - Ray Surveyor Lab Session</title>
 
-		    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		    <meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
 
-		    <meta name="apple-mobile-web-app-capable" content="yes">
-		    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		    <link rel="stylesheet" href="css/reveal.css">
-		    <link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
 
-		    <!-- Theme used for syntax highlighting of code -->
-		    <link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		    <!-- Printing and PDF exports -->
-		    <script>
-			   var link = document.createElement( 'link' );
-			   link.rel = 'stylesheet';
-			   link.type = 'text/css';
-			   link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			   document.getElementsByTagName( 'head' )[0].appendChild( link );
-		    </script>
+		<link rel="stylesheet" href="css/citation.css">
 
-		    <!--[if lt IE 9]>
-		        <script src="lib/js/html5shiv.js"></script>
-		    <![endif]-->
-	  </head>
+		<!-- Printing and PDF exports -->
+		<script>
+		 var link = document.createElement( 'link' );
+		 link.rel = 'stylesheet';
+		 link.type = 'text/css';
+		 link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		 document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 
-	  <body>
+		<!--[if lt IE 9]>
+		    <script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
 
-		    <div class="reveal">
+	<body>
 
-			      <!-- Any section element inside of this container is displayed as a slide -->
-			      <div class="slides">
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
 
                 <section>
-					          <h2>Metagenomes Comparison <br> with Ray Surveyor</h2>
-					          <h3>Lab Session</h3>
-                    <h4> <a href="http://metagenomic.ca" target="_blank"> Microbiome Summer School 2017 </a> </h4>
-					          <p>
-						            <small>
+					<h2>Genomes & Metagenomes Comparison with <br> Ray Surveyor</h2>
+                    <!-- <h4> <a href="http://metagenomic.ca" target="_blank"> Microbiome Summer School 2017 </a> </h4> -->
+					<p>
+						<small>
                             Maxime Déraspe, PhD Student
                             <br>
                             <a href="http://corbeillab.genome.ulaval.ca/" target="_blank">Corbeil Laboratory</a>
                             <br>
                             <img data-src="img/ulaval.png" style="background:none; border:none; box-shadow:none;"/>
                         </small>
-					          </p>
-				        </section>
+					</p>
+				</section>
 
-				        <section>
-                    <section>
-                        <h2> Ray - Kmers Coloring </h2>
-                        <p>
-                            Ray Meta and Surveyor use kmer coloring to assign an identification to each kmer.
-                        </p>
-                        <p>
-                            Coloring is a design pattern to reuse the combination of genomes which are assigned to kmer.
-                            <small> The color design pattern is similar to
-                                <a href="https://en.wikipedia.org/wiki/Hash_consing" target="_blank">hash consing </a>
-                                or <a href="https://en.wikipedia.org/wiki/Flyweight_pattern">flyweight pattern</a>.</small>
-                        </p>
-                        <p>
-                            Huge save in memory consumption.
-                        </p>
-                    </section>
-                    <section>
-                        <img data-src="img/ray-coloring.png" style="background:none; border:none; box-shadow:none;"/>
-                    </section>
-				        </section>
+				<section>
+					<h2>Ray Software</h2>
+					<ul>
+						<li> Ray Assember : distributed genome assemblies for different NGS technologies. [1] </li>
+						<li> Ray Meta : (meta)-genomes sequence identification with kmer coloring. [2] </li>
+						<li> Ray Surveyor : (meta)-genomes comparison with kmer coloring. [3] </li>
+					</ul>
+					<footer>
+						<cite>
+							[1]
+							<a href="http://doi.org/10.1089/cmb.2009.0238" target="_blank">
+								Boisvert, S., Laviolette, F., & Corbeil, J. <b>(2010)</b>. Ray: simultaneous assembly of reads from a mix of high-throughput sequencing technologies. Journal of Computational Biology : A Journal of Computational Molecular Cell Biology, 17(11), 1519–33. 33.
+							</a>
+						</cite>
+						<cite>
+							[2]
+							<a href="http://doi.org/10.1186/gb-2012-13-12-r122" target="_blank">
+								Boisvert, S., Raymond, F., Godzaridis, E., Laviolette, F., & Corbeil, J. <b>(2012)</b>. Ray Meta: scalable de novo metagenome assembly and profiling. Genome Biology, 13(12), R122.
+							</a>
+						</cite>
+						<cite>
+							[3]
+							<a href="http://doi.org/10.1093/molbev/msx200" target="_blank">
+								Déraspe, M., Raymond, F., Boisvert, S., Culley, A., Roy, P. H., Laviolette, F., & Corbeil, J. <b>(2017)</b>. Phenetic Comparison of Prokaryotic Genomes Using k-mers. Molecular Biology and Evolution, 34(10), 2716–2729.
+							</a>
+						</cite>
+					</footer>
+				</section>
+
+				<section>
+					<h2>Ray Surveyor</h2>
+					<p>
+						Ray Surveyor has been used to compare large population of bacterial genomes and metagenomes.
+					</p>
+					<p>
+						The similarity measure is based on the number of shared kmers between genome sequences.
+					</p>
+					<p>
+						It also provides a filtering functionality to compare the (meta)-genomes based on an external datasets <br> (e.g. gene sequences associated with a specific phenotype).
+					</p>
+				</section>
+
+				<section>
+					<p> Bacterial Genomes Comparison with Filtering </p>
+					<img data-src="img/raysurveyor-bacteria.png" style="background:none; border:none; box-shadow:none; height:500px"/>
+					<cite>
+						<a href="http://doi.org/10.1093/molbev/msx200" target="_blank">
+							Déraspe, M., Raymond, F., Boisvert, S., Culley, A., Roy, P. H., Laviolette, F., & Corbeil, J. <b>(2017)</b>. Phenetic Comparison of Prokaryotic Genomes Using k-mers. Molecular Biology and Evolution, 34(10), 2716–2729.
+						</a>
+					</cite>
+				</section>
+
+				<section>
+					<p> Gut Metagenomes Comparison <br> <span style="font-size:smaller"> Before and After Antibiotics Treatment </span> </p>
+					<img data-src="img/raysurveyor-metagenomes.png" style="background:none; border:none; box-shadow:none; height:450px"/>
+					<cite>
+						<a href="http://doi.org/10.1080/19490976.2016.1216747" target="_blank">
+							Raymond, F., Déraspe, M., Boissinot, M., Bergeron, M. G., & Corbeil, J. (2016). Partial recovery of microbiomes after antibiotic treatment. Gut Microbes, 7(5), 428–34.
+						</a>
+					</cite>
+				</section>
+
+				<section>
+                    <h2> Ray - Kmers Coloring </h2>
+                    <p>
+                        Ray Meta and Surveyor use kmer coloring to assign an identification to each kmer.
+                    </p>
+                    <p>
+                        Coloring is a design pattern to reuse the combination of genomes that are assigned to each kmer.
+                        <small> The color design pattern is similar to
+                            <a href="https://en.wikipedia.org/wiki/Hash_consing" target="_blank">hash consing </a>
+                            or <a href="https://en.wikipedia.org/wiki/Flyweight_pattern">flyweight pattern</a>.</small>
+                    </p>
+                    <p>
+                        Huge save in memory consumption.
+                    </p>
+                </section>
 
                 <section>
-                    <section>
-                        <h2> Ray Surveyor - Algorithm </h2>
-                        <p> Ray Surveyor main algorithm is pretty simple. </p>
-                        <p> For each kmer virtual color, we increment counters for each pair of genomes contained in that virtual color. </p>
-                        <p> We report those counts (of shared kmers) into a <br> Gram matrix. </p>
-                    </section>
+                    <img data-src="img/ray-coloring.png" style="background:none; border:none; box-shadow:none;"/>
+                </section>
 
-                    <section>
-                        <h2> Pseudo Code </h2>
-                        <pre><code class="hljs" data-trim contenteditable>
+                <section>
+                    <h2> Ray Surveyor - Algorithm </h2>
+                    <p> Ray Surveyor main algorithm is pretty simple. </p>
+                    <p> For each kmer virtual color, we increment counters for each pair of genomes contained in that virtual color. </p>
+                    <p> We report those counts (of shared kmers) into a <br> Gram matrix. </p>
+                </section>
+
+                <section>
+                    <h2> Pseudo Code </h2>
+                    <pre><code class="hljs" data-trim contenteditable>
                 # Iterate over each kmer
                 FOR each kmer in GRAPH
 
@@ -107,121 +168,119 @@
                   ENDFOR
 
                 ENDFOR
-					              </code></pre>
-                        <p> Question : why does the internal loops start at genome_1  ? </p>
-                        <p> <small> Because we only need to compute the upper triangle ! </small> </p>
-                    </section>
+					</code></pre>
+                    <p> Question : why does the internal loops start at genome_1 ? </p>
+                    <p> <small> Because we only need to compute the upper triangle ! </small> </p>
+                </section>
 
-                    <section>
+                <section>
+                    <h2> Gram Matrix </h2>
+					<table>
+						<thead>
+							<tr>
+                                <th></th>
+								<th>Genome 1</th>
+								<th>Genome 2</th>
+                                <th>Genome 3</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Genome 1</th>
+								<td>2001</td>
+                                <td>112</td>
+                                <td>113</td>
+							</tr>
+							<tr>
+								<th>Genome 2</th>
+								<td>112</td>
+								<td>2002</td>
+                                <td><light>123</light></td>
+							</tr>
+							<tr>
+								<th>Genome 3</th>
+                                <td>113</td>
+                                <td>123</td>
+                                <td>2003</td>
+							</tr>
+						</tbody>
+					</table>
+                    <p>
+                        Question : What are the numbers on the diagonal ?
+                    </p>
+                    <p class="fragment">
+                        <small>
+                            Answer : The size of genomes in kmers. <br>
+                            Size in base pairs = size_in_kmers + kmer_length - 1
+                        </small>
+                    </p>
+                </section>
 
-                        <h2> Gram Matrix </h2>
-					              <table>
-						                <thead>
-							                  <tr>
-                                    <th></th>
-								                    <th>Genome 1</th>
-								                    <th>Genome 2</th>
-                                    <th>Genome 3</th>
-							                  </tr>
-						                </thead>
-						                <tbody>
-							                  <tr>
-								                    <th>Genome 1</th>
-								                    <td>2001</td>
-                                    <td>112</td>
-                                    <td>113</td>
-							                  </tr>
-							                  <tr>
-								                    <th>Genome 2</th>
-								                    <td>112</td>
-								                    <td>2002</td>
-                                    <td><light>123</light></td>
-							                  </tr>
-							                  <tr>
-								                    <th>Genome 3</th>
-                                    <td>113</td>
-                                    <td>123</td>
-                                    <td>2003</td>
-							                  </tr>
-						                </tbody>
-					              </table>
-                        <p>
-                            Question : What are the numbers on the diagonal ?
-                        </p>
-                        <p class="fragment">
-                            <small>
-                                Answer : The size of genomes in kmers. <br>
-                                Size in base pairs = size_in_kmers + kmer_length - 1
-                            </small>
-                        </p>
+                <section>
+                    <h2> Gram Matrix - Properties </h2>
+                    <p> The Gram matrix is symmetrical <br> (Only compute upper triangle) </p>
+                    <p> The Gram matrix can be normalized (diagonal = 1) </p>
+                    <p> The Gram matrix can be transformed into a distance matrix (diagonal = 0) based on a distance metric <br> (Euclidean, Cosine, Canberra, etc..) </p>
+                </section>
 
-                    </section>
+                <section>
+                    <img data-src="img/gram-matrix-transform.png" style="background:none; border:none; box-shadow:none;"/>
+                </section>
 
-                    <section>
-                        <h2> Gram Matrix - Properties </h2>
-                        <p> The Gram matrix is symmetrical <br> (Only compute upper triangle) </p>
-                        <p> The Gram matrix can be normalized (diagonal = 1) </p>
-                        <p> The Gram matrix can be transformed into a distance matrix (diagonal = 0) based on a distance metric <br> (Euclidean, Cosine, Canberra, etc..) </p>
-                    </section>
-
-                    <section>
-                        <img data-src="img/gram-matrix-transform.png" style="background:none; border:none; box-shadow:none;"/>
-                    </section>
-
-                    <section>
-                        <h2> Distance Matrix </h2>
-                        <p> Can be use for clustering <br> (hierarchical cluster dendrograms) </p>
-                        <p> Can be use for basic phylogenies <br> (UPGMA or Neighbor-Joining tree) </p>
-                    </section>
-
+                <section>
+                    <h2> Distance Matrix </h2>
+                    <p> Can be use for clustering <br> (hierarchical cluster dendrograms) </p>
+                    <p> Can be use for basic phylogenies <br> (UPGMA or Neighbor-Joining tree) </p>
                 </section>
 
 
-                <!-- Example of nested vertical slides -->
-				        <section>
 
-                    <section>
-						            <h2>Ray Surveyor - Kmers Filtering</h2>
-						            <p>Filtering kmers in Ray Surveyor allow comparison of (meta)-genomes based on an external datasets. </p>
-                        <p>We can build filter with any sequence datasets.</p>
-                        <p>Sequence datasets are usually built from genes with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.).</p>
-					          </section>
-					          <section>
-						            <h2>Filtering Functions</h2>
-						            <p><strong>Filter-in</strong> : include only the kmers from the filtering dataset. </p>
-                        <p><strong>Filter-out</strong> : exclude all the kmers from the filtering dataset. </p>
-                        <p>We can also <strong>combine</strong> different filters.</p>
-					          </section>
-					          <section>
-                        <img data-src="img/ray-coloring-filtering-in.png" style="background:none; border:none; box-shadow:none;"/>
-					          </section>
-                    <section>
-                        <img data-src="img/ray-coloring-filtering-out.png" style="background:none; border:none; box-shadow:none;"/>
-					          </section>
-                    <section>
-                        <p> Cophenetic correlation is used to give a similarity score between clusters from whole genomes (all kmers) and filtered genomes (kmers from antibiotic resistance genes). </p>
-                        <img data-src="img/raysurveyor-clusters.png" height="300" style="background:none; border:none; box-shadow:none;"/>
-                        <p> Question : explanation for this high correlation ? </p>
-                        <p class="fragment"> <small> Answer : Intrinsic resistance in  <span style="font-style:italic">P. aeruginosa</span> </small> </p>
-                    </section>
-                    <section>
-                        <blockquote> As a land surveyor and its theodolite, <br> Ray Surveyor filtering enables comparison of (meta)-genomes from different angles. </blockquote>
-                        <img data-src="img/raysurveyor-logo.png" height="400" style="background:none; border:none; box-shadow:none;"/>
-                    </section>
-				        </section>
 
-				        <section>
-                    <section>
-					              <h2>Ray Surveyor - Tutorial</h2>
-					              <p>
-						                Time for a little hands-on exercice !
-					              </p>
-                        <p>
-						                Please clone the github project : <br>
-                            <a href="https://github.com/zorino/raysurveyor-tutorial" target="_blank">github.com/zorino/raysurveyor-tutorial</a>
-					              </p>
-                        <p>
-                            <pre><code class="bash">
+                <section>
+					<h2>Ray Surveyor - Kmers Filtering</h2>
+					<p>Filtering kmers in Ray Surveyor allow comparison of (meta)-genomes based on an external datasets. </p>
+                    <p>We can build filter with any sequence datasets.</p>
+                    <p>Sequence datasets are usually built from genes with similar characteristics <br> (Antibiotic Resistance Genes, Virulence factors, etc.).</p>
+				</section>
+
+				<section>
+					<h2>Filtering Functions</h2>
+					<p><strong>Filter-in</strong> : include only the kmers from the filtering dataset. </p>
+                    <p><strong>Filter-out</strong> : exclude all the kmers from the filtering dataset. </p>
+                    <p>We can also <strong>combine</strong> different filters.</p>
+				</section>
+
+				<section>
+                    <img data-src="img/ray-coloring-filtering-in.png" style="background:none; border:none; box-shadow:none;"/>
+				</section>
+
+                <section>
+                    <img data-src="img/ray-coloring-filtering-out.png" style="background:none; border:none; box-shadow:none;"/>
+				</section>
+
+                <section>
+                    <p> Cophenetic correlation is used to give a similarity score between clusters from whole genomes (all kmers) and filtered genomes (kmers from antibiotic resistance genes). </p>
+                    <img data-src="img/raysurveyor-clusters.png" height="300" style="background:none; border:none; box-shadow:none;"/>
+                    <p> Question : explanation for this high correlation ? </p>
+                    <p class="fragment"> <small> Answer : Intrinsic resistance in  <span style="font-style:italic">P. aeruginosa</span> </small> </p>
+                </section>
+
+                <section>
+                    <blockquote> As a land surveyor and its theodolite, <br> Ray Surveyor filtering enables comparison of (meta)-genomes from different angles. </blockquote>
+                    <img data-src="img/raysurveyor-logo.png" height="400" style="background:none; border:none; box-shadow:none;"/>
+                </section>
+
+                <section>
+					<h2>Ray Surveyor - Tutorial</h2>
+					<p>
+						Time for a little hands-on exercice !
+					</p>
+                    <p>
+						Please clone the github project : <br>
+                        <a href="https://github.com/zorino/raysurveyor-tutorial" target="_blank">github.com/zorino/raysurveyor-tutorial</a>
+					</p>
+                    <p>
+                        <pre><code class="bash">
 cd ~ # to your home directory
 git clone https://github.com/zorino/raysurveyor-tutorial
 cd raysurveyor-tutorial
@@ -229,76 +288,79 @@ cd raysurveyor-tutorial
 # download the microbiome dataset
 wget http://perso.genome.ulaval.ca/~deraspem/microbiome-sumschool-2017/survey.res.microbiomes.tgz
 tar xvf survey.res.microbiomes.tgz
-                            </code> </pre>
-                        </p>
+                        </code> </pre>
+                    </p>
 
-                    </section>
-                    <section>
-                        <h2> Dataset #1 </h2>
-                        <p> 5 VIH Genomes </p>
-                        <small>
-                            <ul>
-                                <li>AF069671.1 HIV-1 isolate SE7535 from Uganda, complete genome.</li>
-                                <li>AF224507.1 HIV-1 strain HIV-1wk from South Korea, complete genome.</li>
-                                <li>AY445524.1 HIV-1 clone pWCML249 from Kenya, complete genome.</li>
-                                <li>EU541617.1 HIV-1 clone pIIIB from USA, complete genome.</li>
-                                <li>GQ372986.1 HIV-1 isolate ES P1751 from Spain, complete genome.</li>
-                                <br>
-                                <li>Filtering Dataset : Pol-Genes.fa</li>
-                                <li>Filtering Dataset : Gag-Genes.fa</li>
-                            </ul>
-                        </small>
-                    </section>
-                    <section>
-                        <h2> Dataset #1 </h2>
-                        <p align="left"> TO-DO </p>
-                        <ul>
-                            <li> Run Ray Surveyor </li>
-                            <li> Analyse the results with the Jupyter notebook <br> (survey-notebook-demo.ipynb) </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2> Dataset #2 </h2>
-                        <p> 23 patients that had an antibiotic treatment (Cefprozil)*</p>
-                        <p> 6 controls (patients 6, 7, 8, 23, 25, and 38)</p>
-                        <p align="left"> TO-DO </p>
-                        <ul>
-                            <li> Complete some code in the Jupyter notebook <br> (survey-notebook-microbiome.ipynb) </li>
-                            <li> Analyse the results with the Jupyter notebook </li>
-                        </ul>
-                        <p align="right"><small align="right"> * <img height="70" style="background:none; border:none; box-shadow:none;" src="img/gut-microbe-ref.png"> </small></p>
-                    </section>
-				        </section>
+                </section>
 
-				        <section>
-					          <h2>Ray Surveyor - Installation</h2>
-                    <h4> <img src="img/check_mark.png" style="background:none; border:none; box-shadow:none;" width=40"/> Already done for you </h4>
+				<section>
+                    <h2> Dataset #1 </h2>
+                    <p> 5 VIH Genomes + 2 filtering datasets </p>
+                    <small>
+                        <ul>
+                            <li>AF069671.1 HIV-1 isolate SE7535 from Uganda, complete genome.</li>
+                            <li>AF224507.1 HIV-1 strain HIV-1wk from South Korea, complete genome.</li>
+                            <li>AY445524.1 HIV-1 clone pWCML249 from Kenya, complete genome.</li>
+                            <li>EU541617.1 HIV-1 clone pIIIB from USA, complete genome.</li>
+                            <li>GQ372986.1 HIV-1 isolate ES P1751 from Spain, complete genome.</li>
+                            <li>Filtering Datasets : Pol-Genes.fa & Gag-Genes.fa</li>
+                        </ul>
+                    </small>
+					<p style="text-align: left;"> <span style="background-color: skyblue"> TODO</span> : </p>
+                    <ul>
+                        <li> Run Ray Surveyor </li>
+                        <li> Analyse the results with the Jupyter notebook <br> (survey-notebook-demo.ipynb) </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2> Dataset #2 </h2>
+                    <p> 23 patients that had an antibiotic treatment (Cefprozil)*</p>
+                    <p> 6 controls (patients 6, 7, 8, 23, 25, and 38)</p>
+                    <p style="text-align: left;"> <span style="background-color: skyblue"> TODO</span> : </p>
+                    <ul>
+                        <li> Complete some code in the Jupyter notebook <br> (survey-notebook-microbiome.ipynb) </li>
+                        <li> Analyse the results with the Jupyter notebook </li>
+                    </ul>
+                    <footer>
+						<cite>
+							*
+							<a href="http://doi.org/10.1038/ismej.2015.148" target="_blank">
+								Raymond, F., Ouameur, A. a, Déraspe, M., Iqbal, N., Gingras, H., Dridi, B., … Corbeil, J. (2015). The initial state of the human gut microbiome determines its reshaping by antibiotics. The ISME Journal, 1–14.
+							</a>
+						</cite>
+					</footer>
+
+                </section>
+
+				<section>
+					<h2>Ray Surveyor - Installation</h2>
                     <p>
                         <ul>
-                            <li> gcc (c++ 98), MPI for parallelism </li>
+                            <li> gcc (c++ 11), MPI for parallelism </li>
                             <li> RayPlatform (<a href="https://github.com/zorino/RayPlatform/" target="_blank"> github.com/zorino/ray/</a>) </li>
                             <li> Ray (<a href="https://github.com/zorino/ray/" target="_blank"> github.com/zorino/ray/</a>) </li>
                             <li> python3 for post-analysis with Surveyor scripts </li>
                         </ul>
                     </p>
-				        </section>
+				</section>
 
-				        <section>
-                    <section>
-					              <h2>Ray Surveyor - Configuration</h2>
-                        <p>
-                            <ul>
-                                <li> <strong>-k</strong> : kmer length </li>
-                                <li> <strong>-run-surveyor</strong> : flag to run surveyor (not the assembly) </li>
-                                <li> <strong>-read-sample-assembly</strong> : input fasta sequence file </li>
-                                <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes </li>
-                                <li> <strong>-filter-[in|out]-assembly-X</strong> : add a filter to the genome comparison (fasta sequence file). X is the filter identifier. </li>
-                            </ul>
-                        </p>
-                    </section>
-                    <section>
-                        <p> See ~/raysurveyor-tutorial/survey.conf </p>
-                        <pre><code>
+                <section>
+					<h2>Ray Surveyor - Configuration</h2>
+                    <p>
+                        <ul>
+                            <li> <strong>-k</strong> : kmer length </li>
+                            <li> <strong>-run-surveyor</strong> : flag to run surveyor (not the assembly) </li>
+                            <li> <strong>-read-sample-assembly</strong> : input fasta sequence file </li>
+                            <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes </li>
+                            <li> <strong>-filter-[in|out]-assembly-X</strong> : add a filter to the genome comparison (fasta sequence file). X is the filter identifier. </li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <p> See ~/raysurveyor-tutorial/survey.conf </p>
+                    <pre><code>
 -k 31
 -run-surveyor
 -output survey.res
@@ -312,23 +374,21 @@ tar xvf survey.res.microbiomes.tgz
 -read-sample-assembly AY445524.1 datasets/AY445524.1.fa
 -read-sample-assembly EU541617.1 datasets/EU541617.1.fa
 -read-sample-assembly GQ372986.1 datasets/GQ372986.1.fa
-                        </code></pre>
-                        <p> Question : How many filters in the configuration ? </p>
-                        <p class="fragment"> <small> 3 ! </small> </p>
-                    </section>
-				        </section>
+                    </code></pre>
+                    <p> Question : How many filters in the configuration ? </p>
+                    <p class="fragment"> <small> 3 ! </small> </p>
+                </section>
 
-
-				        <section>
-					          <h2>Ray Surveyor - Run</h2>
-					          <p>
+				<section>
+					<h2>Ray Surveyor - Run</h2>
+					<p>
                         <pre><code class="bash">
 cd ~/raysurveyor-tutorial/
 mpiexec -n 2 Ray survey.conf
 # ... wait for Ray to finish
 ls survey.res/Surveyor
                         </code></pre>
-					          </p>
+					</p>
                     <p>
                         <pre><code class="bash">
 # Expected output of the ls cmd
@@ -345,139 +405,136 @@ less survey.res/Surveyor/KmerMatrix.tsv
 less survey.res/Surveyor/SimilarityMatrix.global.tsv
                         </code></pre>
                     </p>
-				        </section>
+				</section>
 
-				        <section>
-                    <section>
+                <section>
 
-                        <h2>Ray Surveyor - Results</h2>
-					              <p>
-                            Now let's analyse the results
-					              </p>
-                        <pre><code class="bash">
+                    <h2>Ray Surveyor - Results</h2>
+					<p>
+                        Now let's analyse the results
+					</p>
+                    <pre><code class="bash">
 # activate the python virtual environment
 # ..with surveyor_scripts dependencies
 source activate surveyor
 cd ~/raysurveyor-tutorial/
 jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
-                        </code></pre>
-                        <p> <small>Your browser should have open an new tab with jupyter notebook </small> </p>
-
-                    </section>
-
-                    <section>
-                        <h2> Dataset #1 (VIH) </h2>
-                        <p> Open survey-notebook-demo.ipynb </p>
-                        <p> Execute the cells with &lt;shift-enter&gt; </p>
-                    </section>
-
-                    <section>
-                        <img src="img/jupyter-home-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
-                    </section>
-                    <section>
-                        <img src="img/jupyter-nb-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
-                    </section>
-
-                    <section>
-                        <h2> Dataset #2 (Microbiomes) </h2>
-                        <p> Open survey-notebook-microbiome.ipynb </p>
-                        <p> Execute the cells with &lt;shift-enter&gt; </p>
-                        <p> Complete missing code for the 3rd filtered matrix </p>
-                        <p> Answer questions in the notebook </p>
-                    </section>
-
-                    <section>
-                        <img src="img/jupyter-home-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
-                    </section>
-
-                    <section>
-                        <img src="img/jupyter-nb-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
-                    </section>
+                    </code></pre>
+                    <p> <small>Your browser should have open an new tab with jupyter notebook </small> </p>
 
                 </section>
 
-				        <section>
-                    <section>
-                        <h2> Frequently Asked Questions </h2>
-                        <p style="text-align: left;" class="fragment"> What is the best kmer length for analysis ?  </p>
-                        <p style="text-align: left;"  class="fragment">
-                            <small>
-                                It depends of the data. The kmer length can be seen as a trade-off between sensitivity and specificity.
-                                Evolutionarily distant genomes require shorter kmers to get a good signal (sensitivity) while more similar genomes benefit from larger kmer lengths for more specificity.
-                                Previous studies have shown the efficiency of 31-mers in bacterial genome clustering and its robustness in bacterial metagenome profiling.
-                            </small>
-                        </p>
-                    </section>
+                <section>
+                    <h2> Dataset #1 (VIH) </h2>
+                    <p> Open survey-notebook-demo.ipynb </p>
+                    <p> Execute the cells with &lt;shift-enter&gt; </p>
+                </section>
 
-                    <section>
-                        <p style="text-align: left;"> Limitations of the filtering functionality ? </p>
-                        <p style="text-align: left;"  class="fragment">
-                            <small>
-                                A limitation of the filtering approach is that it involves the gathering of sequence data that adequately represents the diversity of the genes or functional category under study.
-                                A type gene dataset would generally not be sufficiant, as the filtering dataset must contains enough sequence variants to grasp the dissimilarity between close genomes with a limited number of signal (shared kmers).
-                                This issue should be alleviated by better filtering datasets as more sequences and better annotations become available in public databases.
-                            </small>
-                        </p>
-                    </section>
+                <section>
+                    <img src="img/jupyter-home-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                </section>
+                <section>
+                    <img src="img/jupyter-nb-vih.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                </section>
 
-                    <section>
-                        <p style="text-align: left;"> What is the difference between Ray Surveyor and other kmer counters ? </p>
-                        <p style="text-align: left;"  class="fragment">
-                            <small>
-                                Counting kmers is one of the most trivial task in bioinformatics, and there is a lot of very efficient kmer counters out there (KMC, JellyFish, MSPKmerCounter, DSK, etc.).
-                                Ray Surveyor aims to be efficient and scalable by using the Ray Meta coloring pattern.
-                                It also does more computation for you than only counting the kmers by providing a Gram matrix that is use for further analyses. Also, the filtering functionality provides a convenient way to compare (meta)-genome datasets from different angles.
-                            </small>
-                        </p>
-                    </section>
+                <section>
+                    <h2> Dataset #2 (Microbiomes) </h2>
+                    <p> Open survey-notebook-microbiome.ipynb </p>
+                    <p> Execute the cells with &lt;shift-enter&gt; </p>
+                    <p> Complete missing code for the 3rd filtered matrix </p>
+                    <p> Answer questions in the notebook </p>
+                </section>
 
-                    <section>
-                        <p style="text-align: left;"> Is Ray Surveyor Quantitative ? </p>
-                        <p style="text-align: left;"  class="fragment">
-                            <small>
-                                Not from a abundance-based perspective. The kmer counts are binary - either present or absent from each (meta)-genome. So it's important to keep in mind that the comparison are based on the sequence content of the studied (meta)-genomes, rather than their relative abundances. For single bacterial genomes comparison, this has a minor impact on the results. For metagenomes, the interpretation of the results must be oriented toward the actual presence or absence of genomic content.
-                            </small>
-                        </p>
-                    </section>
+                <section>
+                    <img src="img/jupyter-home-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
+                </section>
 
+                <section>
+                    <img src="img/jupyter-nb-microbiome.png" style="background:none; border:none; box-shadow:none;" width="800"/>
                 </section>
 
 
+                <section>
+                    <h2> Frequently Asked Questions </h2>
+                </section>
+
+				<section>
+					<p style="text-align: left;"> What is the best kmer length for analysis ?  </p>
+                    <p style="text-align: left;">
+                        <small>
+                            It depends of the data. The kmer length can be seen as a trade-off between sensitivity and specificity.
+                            Evolutionarily distant genomes require shorter kmers to get a good signal (sensitivity) while more similar genomes benefit from larger kmer lengths for more specificity.
+                            Previous studies have shown the efficiency of 31-mers in bacterial genome clustering and its robustness in bacterial metagenome profiling.
+                        </small>
+                    </p>
+				</section>
+
+                <section>
+                    <p style="text-align: left;"> Limitations of the filtering functionality ? </p>
+                    <p style="text-align: left;">
+                        <small>
+                            A limitation of the filtering approach is that it involves the gathering of sequence data that adequately represents the diversity of the genes or functional category under study.
+                            A type gene dataset would generally not be sufficiant, as the filtering dataset must contains enough sequence variants to grasp the dissimilarity between close genomes with a limited number of signal (shared kmers).
+                            This issue should be alleviated by better filtering datasets as more sequences and better annotations become available in public databases.
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <p style="text-align: left;"> What is the difference between Ray Surveyor and other kmer counters ? </p>
+                    <p style="text-align: left;">
+                        <small>
+                            Counting kmers is one of the most trivial task in bioinformatics, and there is a lot of very efficient kmer counters out there (KMC, JellyFish, MSPKmerCounter, DSK, etc.).
+                            Ray Surveyor aims to be efficient and scalable by using the Ray Meta coloring pattern.
+                            It also does more computation for you than only counting the kmers by providing a Gram matrix that is use for further analyses. Also, the filtering functionality provides a convenient way to compare (meta)-genome datasets from different angles.
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <p style="text-align: left;"> Is Ray Surveyor Quantitative ? </p>
+                    <p style="text-align: left;">
+                        <small>
+                            Not from a abundance-based perspective. The kmer counts are binary - either present or absent from each (meta)-genome. So it's important to keep in mind that the comparison are based on the sequence content of the studied (meta)-genomes, rather than their relative abundances. For single bacterial genomes comparison, this has a minor impact on the results. For metagenomes, the interpretation of the results must be oriented toward the actual presence or absence of genomic content.
+                        </small>
+                    </p>
+                </section>
 
                 <section style="text-align: left;">
-					          <h1>THE END</h1>
-				        </section>
+					<h1>THE END</h1>
+				</section>
 
-			      </div>
+			</div>
 
-		    </div>
+		</div>
 
-		    <script src="lib/js/head.min.js"></script>
-		    <script src="js/reveal.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
-		    <script>
+		<script>
 
-			   // More info https://github.com/hakimel/reveal.js#configuration
-			   Reveal.initialize({
-			       controls: true,
-			       progress: true,
-			       history: true,
-			       center: true,
+		 // More info https://github.com/hakimel/reveal.js#configuration
+		 Reveal.initialize({
+			 controls: true,
+			 progress: true,
+			 history: true,
+			 center: true,
 
-			       transition: 'slide', // none/fade/slide/convex/concave/zoom
+			 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			       // More info https://github.com/hakimel/reveal.js#dependencies
-			       dependencies: [
-			           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			           { src: 'plugin/zoom-js/zoom.js', async: true },
-			           { src: 'plugin/notes/notes.js', async: true }
-			       ]
-			   });
+			 // More info https://github.com/hakimel/reveal.js#dependencies
+			 dependencies: [
+			     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			     { src: 'plugin/zoom-js/zoom.js', async: true },
+			     { src: 'plugin/notes/notes.js', async: true }
+			 ]
+		 });
 
-		    </script>
+		</script>
 
-	  </body>
+
+	</body>
 </html>
