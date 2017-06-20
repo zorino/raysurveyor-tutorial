@@ -94,7 +94,7 @@
                   # Iterage over each pair of color from the virtual_color
                   FOR each GENOME_1 in KMER_VIRTUAL_COLOR
 
-                    FOR each GENOME_2 in KMER_VIRTUAL_COLOR[GENOME_1+1:END]
+                    FOR each GENOME_2 in KMER_VIRTUAL_COLOR[GENOME_1:END]
 
                       GRAM_MATRIX[GENOME_1][GENOME_2] += 1
 
@@ -108,7 +108,8 @@
 
                 ENDFOR
 					              </code></pre>
-
+                        <p> Question : why does the internal loops start at genome_1  ? </p>
+                        <p> <small> Because we only need to compute the upper triangle ! </small> </p>
                     </section>
 
                     <section>
