@@ -2,6 +2,9 @@
 
 This tutorial will show you how to launch a surveyor run with a toy dataset made of 5 HIV complete genomes.
 
+A presentation of the software can be find here : http://zorino.github.io/raysurveyor-tutorial/#/
+
+
 ### Installation
 
 Ray Surveyor depends on Ray platform and MPI - implementation such as OpenMPI and MPICH are compatible.
