@@ -2,24 +2,30 @@
 
 This tutorial will show you how to launch a surveyor run with a toy dataset made of 5 HIV complete genomes.
 
-A presentation of the software can be find here : http://zorino.github.io/raysurveyor-tutorial/#/
-
+A presentation of the software along with this tutorial can be find here : http://zorino.github.io/raysurveyor-tutorial/#/
 
 ### Installation
 
 Ray Surveyor depends on Ray platform and MPI - implementation such as OpenMPI and MPICH are compatible.
 
 ```
+# Dependencies:
+#- gcc >= 4.8.1 (c++ 11)
+#- openmpi or mpich (MPI for parallelism)
+#- python 3 + miniconda* (for Surveyor scripts)
+
 # Ray Installation
 git clone https://github.com/zorino/RayPlatform.git;
 git clone https://github.com/zorino/ray.git;
 cd ray;
-make PREFIX=`pwd`/BUILD MAXKMERLENGTH=64 ASSERT=n;
+make PREFIX=`pwd`/BUILD MAXKMERLENGTH=64 HAVE_LIBZ=y HAVE_LIBBZ2=y ASSERT=n;
 make install;
 cd ../
 
 # Clone the tutorial
 git clone https://github.com/zorino/raysurveyor-tutorial.git
+cd raysurveyor-tutorial
+conda env create -f surveyor_scripts/conda_env.yml
 ```
 
 
