@@ -4,6 +4,9 @@ This tutorial will show you how to launch a surveyor run with a toy dataset made
 
 A presentation of the software along with this tutorial can be find here : http://zorino.github.io/raysurveyor-tutorial/#/
 
+The paper can be find here: http://doi.org/10.1093/molbev/msx200
+
+
 ### Installation
 
 Ray Surveyor depends on Ray platform and MPI - implementation such as OpenMPI and MPICH are compatible.
