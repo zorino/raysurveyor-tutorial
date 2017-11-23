@@ -87,6 +87,18 @@
 				</section>
 
 				<section>
+					<h2> Kmers </h2>
+					<img data-src="img/kmer-debruijn.png" style="background:none; border:none; box-shadow:none; height: 450px"/>
+					<footer>
+						<cite>
+							<a href="http://www.homolog.us/Tutorials/index.php?p=2.1&s=1" target="_blank">
+								Source : www.homolog.us tutorials
+							</a>
+						</cite>
+				</section>
+
+
+				<section>
                     <h2> Ray - Graph Coloring </h2>
                     <p>
                         Ray Meta and Surveyor use graph coloring to assign a shared identifier (color) to each kmer.
@@ -104,40 +116,6 @@
 
                 <section>
                     <img data-src="img/ray-coloring.png" style="background:none; border:none; box-shadow:none;"/>
-                </section>
-
-				<section>
-                    <img data-src="img/venn-gram-matrix.png" style="background:none; border:none; box-shadow:none; height: 320px;"/>
-					<table>
-						<thead>
-							<tr>
-                                <th></th>
-								<th>Genome A</th>
-								<th>Genome B</th>
-                                <th>Genome C</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>Genome A</th>
-								<td>A</td>
-                                <td>A ^ B</td>
-                                <td>A ^ C</td>
-							</tr>
-							<tr>
-								<th>Genome B</th>
-								<td>A ^ B</td>
-								<td>B</td>
-                                <td>B ^ C</td>
-							</tr>
-							<tr>
-								<th>Genome C</th>
-                                <td>A ^ C</td>
-                                <td>B ^ C</td>
-                                <td>C</td>
-							</tr>
-						</tbody>
-					</table>
                 </section>
 
                 <section>
@@ -216,6 +194,41 @@
                         </small>
                     </p>
                 </section>
+
+				<section>
+                    <img data-src="img/venn-gram-matrix.png" style="background:none; border:none; box-shadow:none; height: 320px;"/>
+					<table>
+						<thead>
+							<tr>
+                                <th></th>
+								<th>Genome A</th>
+								<th>Genome B</th>
+                                <th>Genome C</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Genome A</th>
+								<td>A</td>
+                                <td>A ^ B</td>
+                                <td>A ^ C</td>
+							</tr>
+							<tr>
+								<th>Genome B</th>
+								<td>A ^ B</td>
+								<td>B</td>
+                                <td>B ^ C</td>
+							</tr>
+							<tr>
+								<th>Genome C</th>
+                                <td>A ^ C</td>
+                                <td>B ^ C</td>
+                                <td>C</td>
+							</tr>
+						</tbody>
+					</table>
+                </section>
+
 
                 <section>
                     <h2> Gram Matrix - Properties </h2>
@@ -585,6 +598,15 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
                 </section>
 
                 <section>
+                    <p style="text-align: left;"> Is Ray Surveyor Quantitative ? </p>
+                    <p style="text-align: left;">
+                        <small>
+                            Not from a abundance-based perspective. The kmer counts are binary - either present or absent from each (meta)-genome. So it's important to keep in mind that the comparison are based on the sequence content of the studied (meta)-genomes, rather than their relative abundances. For single bacterial genomes comparison, this has a minor impact on the results. For metagenomes, the interpretation of the results must be oriented toward the actual presence or absence of genomic content.
+                        </small>
+                    </p>
+                </section>
+
+				<section>
                     <p style="text-align: left;"> What is the difference between Ray Surveyor and other kmer counters ? </p>
                     <p style="text-align: left;">
                         <small>
@@ -596,13 +618,14 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
                 </section>
 
                 <section>
-                    <p style="text-align: left;"> Is Ray Surveyor Quantitative ? </p>
+                    <p style="text-align: left;"> How does Ray Surveyor compared to <a href="https://github.com/marbl/Mash/" target="_blank">Mash</a> ? </p>
                     <p style="text-align: left;">
                         <small>
-                            Not from a abundance-based perspective. The kmer counts are binary - either present or absent from each (meta)-genome. So it's important to keep in mind that the comparison are based on the sequence content of the studied (meta)-genomes, rather than their relative abundances. For single bacterial genomes comparison, this has a minor impact on the results. For metagenomes, the interpretation of the results must be oriented toward the actual presence or absence of genomic content.
+							Mash is a very fast software that compute (meta)-genome distances by using minimum hash values in order to estimate the Jaccard index of similarity. It is better suited for quick identification of genomes with reference sequences. Ray Surveyor on the other hand takes all k-mers into account to compute the distances between genomes. We believe this approach can better delineate sub-clusters of prokaryotic genomes in the presence of horizontal gene transfers, at the expense of being less frugal in computing resources.
                         </small>
                     </p>
                 </section>
+
 
                 <section style="text-align: left;">
 					<h1>THE END</h1>
