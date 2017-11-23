@@ -61,8 +61,8 @@
 					<h2>Ray Software</h2>
 					<ul>
 						<li> Ray Assembler : distributed genome assemblies for different NGS technologies. [1] </li>
-						<li> Ray Meta : (meta)-genomes sequence identification with kmer coloring. [2] </li>
-						<li> Ray Surveyor : (meta)-genomes comparison with kmer coloring. [3] </li>
+						<li> Ray Meta : (meta)-genomes sequence identification with graph coloring. [2] </li>
+						<li> Ray Surveyor : (meta)-genomes comparison with graph coloring. [3] </li>
 					</ul>
 					<footer>
 						<cite>
@@ -87,12 +87,12 @@
 				</section>
 
 				<section>
-                    <h2> Ray - Kmers Coloring </h2>
+                    <h2> Ray - Graph Coloring </h2>
                     <p>
-                        Ray Meta and Surveyor use kmer coloring to assign an identification to each kmer.
+                        Ray Meta and Surveyor use graph coloring to assign a shared identifier (color) to each kmer.
                     </p>
                     <p>
-                        Coloring is a design pattern to reuse the combination of genomes that are assigned to each kmer.
+                        Coloring is a design pattern to reuse the <span style="text-decoration: underline;"> combination of genomes (color) </span> that are assigned to each kmer.
                         <small> The color design pattern is similar to
                             <a href="https://en.wikipedia.org/wiki/Hash_consing" target="_blank">hash consing </a>
                             or <a href="https://en.wikipedia.org/wiki/Flyweight_pattern">flyweight pattern</a>.</small>
