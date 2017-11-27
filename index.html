@@ -87,6 +87,11 @@
 				</section>
 
 				<section>
+                    <blockquote> As a land surveyor and its theodolite, <br> Ray Surveyor enables comparison of (meta)-genomes from different angles. </blockquote>
+                    <img data-src="img/raysurveyor-logo.png" height="400" style="background:none; border:none; box-shadow:none;"/>
+                </section>
+
+				<section>
 					<h2> Kmers </h2>
 					<img data-src="img/kmer-debruijn.png" style="background:none; border:none; box-shadow:none; height: 450px"/>
 					<footer>
@@ -96,7 +101,6 @@
 							</a>
 						</cite>
 				</section>
-
 
 				<section>
                     <h2> Ray - Graph Coloring </h2>
@@ -277,13 +281,13 @@
 						<tbody>
 							<tr>
 								<th>Genome B</th>
-								<td>A ^ B</td>
+								<td>A ^ B (or B) </td>
 								<td>A ^ B ^ C</td>
 							</tr>
 							<tr>
 								<th>Genome C</th>
                                 <td>A ^ B ^ C</td>
-                                <td>A ^ C</td>
+                                <td>A ^ C (or C)</td>
 							</tr>
 						</tbody>
 					</table>
@@ -292,6 +296,7 @@
                 <section>
                     <img data-src="img/ray-coloring-filtering-out.png" style="background:none; border:none; box-shadow:none;"/>
 				</section>
+
 				<section>
                     <img data-src="img/venn-gram-matrix.png" style="background:none; border:none; box-shadow:none; height: 320px;"/>
 					<table>
@@ -305,13 +310,13 @@
 						<tbody>
 							<tr>
 								<th>Genome B</th>
-								<td>B \ (A^B)</td>
+								<td>B \ (A^B) (or B)</td>
 								<td>B^C \ (A^B^C)</td>
 							</tr>
 							<tr>
 								<th>Genome C</th>
                                 <td>B^C \ (A^B^C)</td>
-                                <td>C \ (A^C)</td>
+                                <td>C \ (A^C) (or C)</td>
 							</tr>
 						</tbody>
 					</table>
@@ -325,9 +330,9 @@
                 </section>
 
                 <section>
-                    <blockquote> As a land surveyor and its theodolite, <br> Ray Surveyor filtering enables comparison of (meta)-genomes from different angles. </blockquote>
-                    <img data-src="img/raysurveyor-logo.png" height="400" style="background:none; border:none; box-shadow:none;"/>
-                </section>
+                    <img data-src="img/raysurveyor-ccc.png" style="background:none; border:none; box-shadow:none; width: 350px;"/>
+				</section>
+
 
 				<section>
 					<h2>Ray Surveyor - Usage</h2>
@@ -421,7 +426,7 @@ tar xvf survey.res.microbiomes.tgz
                             <li> <strong>-k</strong> : kmer length </li>
                             <li> <strong>-run-surveyor</strong> : flag to run surveyor (not the assembly) </li>
                             <li> <strong>-read-sample-assembly</strong> : input fasta sequence file </li>
-                            <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes </li>
+                            <li> <strong>-write-kmer-matrix</strong> : output a boolean kmer matrix of presence/absence in the genomes (Kover) </li>
                             <li> <strong>-filter-[in|out]-assembly-X</strong> : add a filter to the genome comparison (fasta sequence file). X is the filter identifier. </li>
                         </ul>
                     </p>
@@ -617,14 +622,14 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
                     </p>
                 </section>
 
-                <section>
-                    <p style="text-align: left;"> How does Ray Surveyor compared to <a href="https://github.com/marbl/Mash/" target="_blank">Mash</a> ? </p>
-                    <p style="text-align: left;">
-                        <small>
-							Mash is a very fast software that compute (meta)-genome distances by using minimum hash values in order to estimate the Jaccard index of similarity. It is better suited for quick identification of genomes with reference sequences. Ray Surveyor on the other hand takes all k-mers into account to compute the distances between genomes. We believe this approach can better delineate sub-clusters of prokaryotic genomes in the presence of horizontal gene transfers, at the expense of being less frugal in computing resources.
-                        </small>
-                    </p>
-                </section>
+                <!-- <section>
+                     <p style="text-align: left;"> How does Ray Surveyor compared to <a href="https://github.com/marbl/Mash/" target="_blank">Mash</a> ? </p>
+                     <p style="text-align: left;">
+                     <small>
+					 Mash is a very fast software that compute (meta)-genome distances by using minimum hash values in order to estimate the Jaccard index of similarity. It is better suited for quick identification of genomes with reference sequences. Ray Surveyor on the other hand takes all k-mers into account to compute the distances between genomes. We believe this approach can better delineate sub-clusters of prokaryotic genomes in the presence of horizontal gene transfers, at the expense of being less frugal in computing resources.
+                     </small>
+                     </p>
+					 </section> -->
 
 
                 <section style="text-align: left;">
