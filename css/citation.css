@@ -5,3 +5,7 @@ cite {
 	font-size: 15px !important;
 	font-style: italic !important;
 }
+
+table tr td {
+	font-size: 30px !important;
+}

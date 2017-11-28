@@ -214,19 +214,19 @@
 							<tr>
 								<th>Genome A</th>
 								<td>A</td>
-                                <td>A ^ B</td>
-                                <td>A ^ C</td>
+                                <td>A &cap; B</td>
+                                <td>A &cap; C</td>
 							</tr>
 							<tr>
 								<th>Genome B</th>
-								<td>A ^ B</td>
+								<td>A &cap; B</td>
 								<td>B</td>
-                                <td>B ^ C</td>
+                                <td>B &cap; C</td>
 							</tr>
 							<tr>
 								<th>Genome C</th>
-                                <td>A ^ C</td>
-                                <td>B ^ C</td>
+                                <td>A &cap; C</td>
+                                <td>B &cap; C</td>
                                 <td>C</td>
 							</tr>
 						</tbody>
@@ -285,13 +285,13 @@
 						<tbody>
 							<tr>
 								<th>Genome B</th>
-								<td>A ^ B (or B) </td>
-								<td>A ^ B ^ C</td>
+								<td>A &cap; B (or B) </td>
+								<td>A &cap; B &cap; C</td>
 							</tr>
 							<tr>
 								<th>Genome C</th>
-                                <td>A ^ B ^ C</td>
-                                <td>A ^ C (or C)</td>
+                                <td>A &cap; B &cap; C</td>
+                                <td>A &cap; C (or C)</td>
 							</tr>
 						</tbody>
 					</table>
@@ -314,13 +314,13 @@
 						<tbody>
 							<tr>
 								<th>Genome B</th>
-								<td>B \ (A^B) (or B)</td>
-								<td>B^C \ (A^B^C)</td>
+								<td>B \ (A&cap;B) (or B)</td>
+								<td>B&cap;C \ (A&cap;B&cap;C)</td>
 							</tr>
 							<tr>
 								<th>Genome C</th>
-                                <td>B^C \ (A^B^C)</td>
-                                <td>C \ (A^C) (or C)</td>
+                                <td>B&cap;C \ (A&cap;B&cap;C)</td>
+                                <td>C \ (A&cap;C) (or C)</td>
 							</tr>
 						</tbody>
 					</table>
@@ -334,7 +334,10 @@
                 </section>
 
                 <section>
-                    <img data-src="img/raysurveyor-ccc.png" style="background:none; border:none; box-shadow:none; width: 350px;"/>
+					<p style="width: 800px;">
+						<img data-src="img/raysurveyor-ccc.png" style="background:none; border:none; box-shadow:none; width: 350px; float: left; padding-right: 20px"/>
+						<div style="font-size: 12px; padding: 20px; text-align: right; margin-top: 200px"> Comparison of the relationship between strains when genome sequences are filtered using one of five filtering data sets for Streptococcus pneumoniae, Pseudomonas aeruginosa and the 2,429 representative bacterial genomes. The Heatmap represents the Canberra distance between genomes collated on a subset of k-mers. The X and Y axis of the heatmap are genomes ordered based on hierarchical clustering of the complete genome. The number in top left corner of heatmaps is the cophenetic distance, expressed in percentages, between filtered data sets and whole genome phenetic tree. The darker the shade of blue, the higher the similarity between samples. </div>
+					</p>
 				</section>
 
 
@@ -353,20 +356,22 @@
 
 				<section>
 					<p> Bacterial Genomes Comparison with Filtering </p>
-					<img data-src="img/raysurveyor-bacteria.png" style="background:none; border:none; box-shadow:none; height:500px"/>
+					<img data-src="img/raysurveyor-bacteria.png" style="background:none; border:none; box-shadow:none; height:480px"/>
 					<cite>
+						Cophenetic distance between phenetic trees based on whole genome and filtered data sets for 42 bacterial species from RefSeq that included at least 100 genomes. Intensity of heatmap represents the cophenetic correlation as shown in the legend. Numbers in the heatmap are percentages of genomes with zero k-mers associated with relevant filtering data set 
 						<a href="http://doi.org/10.1093/molbev/msx200" target="_blank">
-							Déraspe, M., Raymond, F., Boisvert, S., Culley, A., Roy, P. H., Laviolette, F., & Corbeil, J. <b>(2017)</b>. Phenetic Comparison of Prokaryotic Genomes Using k-mers. Molecular Biology and Evolution, 34(10), 2716–2729.
+							(Déraspe et al.).
 						</a>
 					</cite>
 				</section>
 
 				<section>
 					<p> Gut Metagenomes Comparison <br> <span style="font-size:smaller"> Before and After Antibiotics Treatment </span> </p>
-					<img data-src="img/raysurveyor-metagenomes.png" style="background:none; border:none; box-shadow:none; height:450px"/>
+					<img data-src="img/raysurveyor-metagenomes.png" style="background:none; border:none; box-shadow:none; height:430px"/>
 					<cite>
+						Comparison of complete assembled metagenomes between A) day 7 vs day 0 and B) day 90 vs day 0 for exposed participants and controls. Horizontal lines indicate the mean of groups. Participants enriched in E. cloacae at day 7 are marked with stars (*)
 						<a href="http://doi.org/10.1080/19490976.2016.1216747" target="_blank">
-							Raymond, F., Déraspe, M., Boissinot, M., Bergeron, M. G., & Corbeil, J. (2016). Partial recovery of microbiomes after antibiotic treatment. Gut Microbes, 7(5), 428–34.
+							(Raymond et al.).
 						</a>
 					</cite>
 				</section>
@@ -594,6 +599,14 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=1000000000
                         </small>
                     </p>
 				</section>
+
+				<section>
+                    <img src="img/raysurveyor-simulation.png" style="background:none; border:none; box-shadow:none;" width="700"/>
+					<cite>
+						Evaluation of simulated genome populations with Ray Surveyor. Colors and symbols represent the distance metrics used to transform the Ray Surveyor’s Gram matrix into a distance matrix. Each column represents a different evolutionary distance between the genomes, based on the average branch length and bacterial species definition. Ten replicates were performed for each point. First row (A) is the cophenetic correlation between the reference phylogeny and the phenetic tree. Second row (B) is the Robinson–Foulds metric between the reference phylogeny and the Ray Surveyor derived tree <a href="https://academic.oup.com/mbe/article/34/10/2716/3976054" target="_blank"> (Déraspe et al.)</a>.
+					</cite>
+                </section>
+
 
                 <section>
                     <p style="text-align: left;"> Limitations of the filtering functionality ? </p>
