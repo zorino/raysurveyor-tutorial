@@ -24,6 +24,8 @@ from skbio.tree import nj
 import plotly.graph_objs as go
 import plotly.figure_factory as FF
 
+import colorlover as cl
+
 
 def read_args():
 
@@ -53,6 +55,10 @@ def read_args():
 
 def read_matrix(file):
     pd_frame = pd.read_table(file, sep='\t', skipinitialspace=True, index_col=0)
+    return pd_frame
+
+def read_categories(file):
+    pd_frame = pd.read_table(file, sep='\t', skipinitialspace=True, index_col=None, header=None)
     return pd_frame
 
 def normalize_gram_matrix(K,K2=None):
@@ -134,20 +140,26 @@ def tree_distances(file):
     branch_len_out.close()
 
 
-def plotly_heatmap(gram_matrix, title=None, width=600, height=600):
+def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=600):
 
     # Initialize figure by creating upper dendrogram
     figure = None
 
-    figure = FF.create_dendrogram(gram_matrix, orientation='bottom', labels=gram_matrix.axes[0])
+    figure = FF.create_dendrogram(gram_matrix,
+                                  orientation='bottom',
+                                  labels=gram_matrix.axes[0])
 
     for i in range(len(figure['data'])):
         figure['data'][i]['yaxis'] = 'y2'
+        figure['data'][i]['showlegend'] = False
 
     # Create Side Dendrogram
-    dendro_side = FF.create_dendrogram(gram_matrix, orientation='right')
+    dendro_side = FF.create_dendrogram(gram_matrix,
+                                       orientation='right')
+
     for i in range(len(dendro_side['data'])):
         dendro_side['data'][i]['xaxis'] = 'x2'
+        dendro_side['data'][i]['showlegend'] = False
 
     # Add Side Dendrogram Data to Figure
     figure['data'].extend(dendro_side['data'])
@@ -161,26 +173,64 @@ def plotly_heatmap(gram_matrix, title=None, width=600, height=600):
     heat_data = heat_data[dendro_leaves,:]
     heat_data = heat_data[:,dendro_leaves]
 
-
     heatmap = [
         go.Heatmap(
             x = gram_matrix.axes[0],
             y = gram_matrix.axes[1],
             z = heat_data,
-            colorscale = 'YIGnBu'
+            colorscale = 'YIGnBu',
+            showscale = False,
+            showlegend = False
         )
     ]
 
-    heatmap[0]['x'] = figure['layout']['xaxis']['tickvals']
-    heatmap[0]['y'] = dendro_side['layout']['yaxis']['tickvals']
+
+    # x_values and labels
+    x_values = figure['layout']['xaxis']['tickvals']
+    x_labels = figure['layout']['xaxis']['ticktext']
+    y_values = dendro_side['layout']['yaxis']['tickvals']
+
+    heatmap[0]['x'] = x_values
+    heatmap[0]['y'] = y_values
 
     # Add Heatmap Data to Figure
     figure['data'].extend(heatmap)
 
 
+    if categories is not None:
+
+        category = categories[1].unique()
+        col_p = cl.to_rgb(cl.scales['9']['qual']['Set1'])
+        # col_p = cl.to_rgb( cl.scales[str(len(category))]['div']['RdYlBu'] )
+
+        traces = []
+
+        for idx, c in enumerate(category):
+
+            x_categories = categories[categories[1] == c][0].values
+            x_val = [x_values[i] for i, j in enumerate(x_labels) if j in x_categories]
+
+            trace = go.Scatter(
+                x = x_val,
+                y = [1]*len(x_val),
+                mode = "markers",
+                marker = {
+                    "symbol": "square",
+                    "color": col_p[idx],
+                    "size": 12
+                },
+                xaxis = 'x1',
+                yaxis = 'y3',
+                showlegend = True,
+                name = c
+            )
+
+            figure['data'].extend([trace])
+
+
     # Edit Layout
     figure['layout'].update({'width':width, 'height':height, 'title':title,
-                             'showlegend':False, 'hovermode': 'closest',})
+                             'showlegend': True, 'hovermode': 'closest'})
 
     # Edit xaxis
     figure['layout']['xaxis'].update({'domain': [.15, 1],
@@ -188,7 +238,14 @@ def plotly_heatmap(gram_matrix, title=None, width=600, height=600):
                                       'showgrid': False,
                                       'showline': False,
                                       'zeroline': False,
-                                      'ticks':""})
+                                      "autotick":False,
+                                      "ticks":'',
+                                      "tickfont":{
+                                          "family":'Arial, sans-serif',
+                                          "size": 8,
+                                          "color":'black'
+                                      }})
+
     # Edit xaxis2
     figure['layout'].update({'xaxis2': {'domain': [0, .15],
                                         'mirror': False,
@@ -198,27 +255,51 @@ def plotly_heatmap(gram_matrix, title=None, width=600, height=600):
                                         'showticklabels': False,
                                         'ticks':""}})
 
+
     # Edit yaxis
     figure['layout']['yaxis'].update({'domain': [0, .85],
                                       'mirror': False,
                                       'showgrid': False,
                                       'showline': False,
                                       'zeroline': False,
-                                      'showticklabels': True,
-                                      'ticks': ""})
+                                      'showticklabels': False,
+                                      'ticks':""})
 
+    if categories is not None:
 
-    # Edit yaxis2
-    figure['layout'].update({'yaxis2':{'domain':[.825, .975],
-                                       'mirror': False,
-                                       'showgrid': False,
-                                       'showline': False,
-                                       'zeroline': False,
-                                       'showticklabels': False,
-                                       'ticks':""}})
+        # Edit yaxis2
+        figure['layout'].update({'yaxis2':{'domain':[.875, .975],
+                                           'mirror': False,
+                                           'showgrid': False,
+                                           'showline': False,
+                                           'zeroline': False,
+                                           'showticklabels': False,
+                                           'ticks':""}})
+
+        # Edit yaxis3
+        figure['layout'].update({'yaxis3':{'domain':[.83, .875],
+                                           'mirror': False,
+                                           'showgrid': False,
+                                           'showline': False,
+                                           'zeroline': False,
+                                           'showticklabels': False,
+                                           'ticks':""}})
+
+    else:
+
+        # Edit yaxis2
+        figure['layout'].update({'yaxis2':{'domain':[.825, .975],
+                                           'mirror': False,
+                                           'showgrid': False,
+                                           'showline': False,
+                                           'zeroline': False,
+                                           'showticklabels': False,
+                                           'ticks':""}})
+
 
     figure['layout']['yaxis']['ticktext'] = np.asarray(gram_matrix.axes[0][dendro_leaves])
     figure['layout']['yaxis']['tickvals'] = np.asarray(dendro_side['layout']['yaxis']['tickvals'])
+
 
     return figure
 

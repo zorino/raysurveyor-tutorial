@@ -93,6 +93,7 @@ dependencies:
 - zeromq=4.1.5=0
 - zlib=1.2.8=3
 - pip:
+  - colorlover==0.2.1
   - ete3==3.0.0b35
   - ipython-genutils==0.2.0
   - jupyter-client==5.0.1
@@ -102,4 +103,3 @@ dependencies:
   - pyani==0.2.3
   - pyvolve==0.8.4
   - seaborn==0.7.1
-
