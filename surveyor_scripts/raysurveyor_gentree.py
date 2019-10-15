@@ -162,7 +162,8 @@ def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=6
         dendro_side['data'][i]['showlegend'] = False
 
     # Add Side Dendrogram Data to Figure
-    figure['data'].extend(dendro_side['data'])
+    # figure['data'].extend(dendro_side['data'])
+    figure.add_traces(dendro_side['data'])
 
     # Create Heatmap
     dendro_leaves = dendro_side['layout']['yaxis']['ticktext']
@@ -178,9 +179,9 @@ def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=6
             x = gram_matrix.axes[0],
             y = gram_matrix.axes[1],
             z = heat_data,
-            colorscale = 'YIGnBu',
+            colorscale = 'RdBu',
             showscale = False,
-            showlegend = False
+            # showlegend = False
         )
     ]
 
@@ -194,20 +195,23 @@ def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=6
     heatmap[0]['y'] = y_values
 
     # Add Heatmap Data to Figure
-    figure['data'].extend(heatmap)
+    figure.add_traces(heatmap)
 
 
     if categories is not None:
 
-        category = categories[1].unique()
-        col_p = cl.to_rgb(cl.scales['9']['qual']['Set1'])
+        col = categories.columns
+        category = categories[col[0]].value_counts()[:11].index.tolist()
+
+        col_p = cl.to_rgb(cl.scales['11']['qual']['Set3'])
         # col_p = cl.to_rgb( cl.scales[str(len(category))]['div']['RdYlBu'] )
 
         traces = []
 
         for idx, c in enumerate(category):
 
-            x_categories = categories[categories[1] == c][0].values
+            x_categories = categories[categories[col[0]] == c].index.tolist()
+            # print(x_categories)
             x_val = [x_values[i] for i, j in enumerate(x_labels) if j in x_categories]
 
             trace = go.Scatter(
@@ -225,7 +229,8 @@ def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=6
                 name = c
             )
 
-            figure['data'].extend([trace])
+            # figure['data'].extend([trace])
+            figure.add_trace(trace)
 
 
     # Edit Layout
@@ -238,7 +243,7 @@ def plotly_heatmap(gram_matrix, title=None, categories=None, width=600, height=6
                                       'showgrid': False,
                                       'showline': False,
                                       'zeroline': False,
-                                      "autotick":False,
+                                      # "tickmode":False,
                                       "ticks":'',
                                       "tickfont":{
                                           "family":'Arial, sans-serif',
