@@ -89,7 +89,7 @@ def build_tree(dist_matrix, names_list, clust):
         # print(dist_matrix)
         dm = DistanceMatrix(dist_matrix, names_list)
         tree_scikit = nj(dm,result_constructor=str)
-        tree = Tree(tree_scikit)
+        tree = Tree(tree_scikit, quoted_node_names=True)
     elif clust == 'upgma':
         dm = _DistanceMatrix(names=names_list, matrix=condense_matrix(dist_matrix))
         constructor = DistanceTreeConstructor()
