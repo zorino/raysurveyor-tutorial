@@ -89,7 +89,7 @@ def build_tree(dist_matrix, names_list, clust):
         # print(dist_matrix)
         dm = DistanceMatrix(dist_matrix, names_list)
         tree_scikit = nj(dm,result_constructor=str)
-        tree = Tree(tree_scikit, quoted_node_names=True)
+        tree = Tree(tree_scikit)
     elif clust == 'upgma':
         dm = _DistanceMatrix(names=names_list, matrix=condense_matrix(dist_matrix))
         constructor = DistanceTreeConstructor()
@@ -348,7 +348,7 @@ if __name__ == "__main__":
     df_dist.to_csv(path_or_buf=outfile+".dist.tsv", sep="\t")
 
     print("Building distance matrix for tree construction..")
-    names_list = [str(i) for i in df.index.values.tolist()]
+    names_list = [str(i).replace('(','_').replace(')','_') for i in df.index.values.tolist()]
 
     print("Building final [%s] tree.." % args['tree'])
     # tree = build_tree(dist_matrix, names_list, args['tree'])
